@@ -1,0 +1,56 @@
+Course 9 Project: Shiny Application and Reproducible Pitch
+========================================================
+author: Wangchun Zhang
+date:  05/26/2017
+autosize: true
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Overview
+========================================================
+
+## This Shiny application is built by using R-studio as the project requirement of Coursera Data Science Specialization. 
+
++ Demo of the application can be found at: https://justinwazhang.shinyapps.io/Project/
+
++ Source code can be found at: https://github.com/wajustinzhang/course9project
+
+
+Run time guideline
+========================================================
+In exploratory data analaysis, various R and ploting commands are used for understanding data set as follows:
+
++ Data set size, data set dimension, variable name/ value/ type, missing value
++ Data set summary
++ histrogram of variables
++ Coorelationship between variables
++ Various plotting.
+
+This R shiny application is trying to build a GUI for these tasks.
+
+
+R command example used in the application
+========================================================
+Following is example to use R command to show data set summary.
+
+```{r, echo=FALSE}
+library(datasets)
+summary(mtcars)
+```
+
+Plotting Example
+========================================================
+
+Following is plotting example showing relationship between mtcars$mpg(as y) and mtcars$hp(as x), colored by mtcars$cyl as factor.
+
+```{r warning=FALSE, width=12, fig.height=10, fig.width=28}
+library(ggplot2)
+selectedData<-mtcars[,c('mpg', 'hp', 'cyl')]
+ggplot(selectedData, aes(x=selectedData$hp, y=selectedData$mpg)) +
+                  geom_point(size=6,aes(colour = factor(selectedData$cyl))) +
+                  xlab('mpg') +
+                  ylab('hp')
+```
+
